@@ -1,21 +1,16 @@
-# Base image with Python 3.12 (adjust if needed)
-FROM python:3.12.1-slim
+FROM ultralytics/yolov8:latest  
 
-# Install dependencies for virtual environment creation
-RUN apt-get update && apt-get install -y python3-venv
+# Copy your inference code directory
+COPY . /app
 
-# Create virtual environment (replace with your actual directory)
+# Install any additional python dependencies (if needed)
+# RUN pip install -r requirements.txt  # Example for requirements file
+
+# Set the working directory within the container
 WORKDIR /app
-RUN python3 -m venv .venv
 
-# Install dependencies within the virtual environment
-RUN .venv/bin/pip install ultralytics pytest 
+# Expose the port used by your application (if applicable)
+# EXPOSE 8080  # Example for port 8080
 
-# Copy project code from Git repository (optional)
-COPY --from=source . /app
-RUN git config --global user.email "humzamuhammad14@gmail.com"
-RUN git config --global user.name "muhammadhumza10"
-RUN git clone https://github.com/muhammadhumza10/yolov8-human-posture-detection.git .
-
-# Run the detection script
-CMD ["python", "pose.py"]  # Replace with your actual script name
+# Command to execute your python script
+CMD ["python", "inference.py"]  # Replace "inference.py" with your script name
