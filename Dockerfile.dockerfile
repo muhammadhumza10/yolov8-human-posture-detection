@@ -13,4 +13,4 @@ WORKDIR /app
 # EXPOSE 8080  # Example for port 8080
 
 # Command to execute your python script
-CMD ["python", "inference.py"]  # Replace "inference.py" with your script name
+CMD ["python", "pose.py"]  
