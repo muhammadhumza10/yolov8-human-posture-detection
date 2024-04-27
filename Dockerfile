@@ -9,7 +9,8 @@ COPY . /app
 
 # Install Ultralytics and dependencies
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install pytest && \
+    pip install ultralytics
 
 # Command to run pose.py
 CMD ["python", "pose.py"]
