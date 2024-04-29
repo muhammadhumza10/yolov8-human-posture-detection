@@ -17,8 +17,8 @@ RUN python -m venv my_venv
 RUN /bin/bash -c "source my_venv/bin/activate"
 
 # Install Python dependencies from requirements.txt inside the virtual environment
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+RUN pip install pytest && \
+    pip install ultralytics
 
 # Copy the Python script into the container
 COPY pose.py .
