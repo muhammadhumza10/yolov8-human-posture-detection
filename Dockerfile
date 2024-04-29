@@ -19,8 +19,8 @@ RUN pip install pytest && \
 
 # Copy the Python script into the container
 COPY pose.py . 
-COPY model .
-COPY videos/Celebrities-Walk.mp4 .
+COPY model /app/model/
+COPY videos/Celebrities-Walk.mp4 /app/videos/
 COPY test.py .
 # Set the entrypoint command to run the Python script
 CMD ["python", "pose.py"]
