@@ -4,6 +4,9 @@ FROM python:3.9
 # Set the working directory in the container
 WORKDIR /app
 
+# Install libgl1-mesa-glx package
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
 # Copy the requirements.txt file into the container
 COPY requirements.txt .
 
