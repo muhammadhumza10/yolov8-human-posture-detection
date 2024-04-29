@@ -21,7 +21,9 @@ RUN pip install pytest && \
     pip install ultralytics
 
 # Copy the Python script into the container
-COPY pose.py .
+COPY pose.py . 
+COPY model .
+COPY videos .
 
 # Set the entrypoint command to run the Python script
 CMD ["python", "pose.py"]
