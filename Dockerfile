@@ -7,9 +7,6 @@ WORKDIR /app
 # Install libgl1-mesa-glx package
 RUN apt-get update && apt-get install -y libgl1-mesa-glx
 
-# Copy the requirements.txt file into the container
-COPY requirements.txt .
-
 # Create a virtual environment named my_venv
 RUN python -m venv my_venv
 
@@ -23,7 +20,7 @@ RUN pip install pytest && \
 # Copy the Python script into the container
 COPY pose.py . 
 COPY model .
-COPY videos .
-
+COPY videos/Celebrities-Walk.mp4 .
+COPY test.py .
 # Set the entrypoint command to run the Python script
 CMD ["python", "pose.py"]
